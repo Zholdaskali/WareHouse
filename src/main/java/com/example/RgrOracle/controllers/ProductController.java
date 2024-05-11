@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class ProductController {
@@ -68,26 +69,18 @@ public class ProductController {
     }
 
     @PostMapping("/edit")
-    public String editProduct(@RequestParam("productId") int productId,
+    public String editProduct(@RequestParam("productId") Long productId,
                               @RequestParam("productName") String productName,
                               @RequestParam("productDescription") String productDescription,
                               @RequestParam("productPrice") int productPrice) {
-        // Находим продукт в списке по идентификатору
-        Product productToUpdate = null;
-        for (Product product : products) {
-            if (product.getId() == productId) {
-                productToUpdate = product;
-                break;
-            }
-        }
-
-        // Если продукт найден, обновляем его данные
-        if (productToUpdate != null) {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if (optionalProduct.isPresent()) {
+            Product productToUpdate = optionalProduct.get();
             productToUpdate.setProductName(productName);
             productToUpdate.setProductDescription(productDescription);
             productToUpdate.setProductPrice(productPrice);
+            productRepository.save(productToUpdate);
         }
-
-        return "redirect:/products";
+        return "redirect:/";
     }
 }
