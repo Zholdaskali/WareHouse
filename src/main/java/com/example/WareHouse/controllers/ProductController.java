@@ -1,7 +1,7 @@
-package com.example.RgrOracle.controllers;
+package com.example.WareHouse.controllers;
 
-import com.example.RgrOracle.models.Product;
-import com.example.RgrOracle.repositories.ProductRepository;
+import com.example.WareHouse.models.Product;
+import com.example.WareHouse.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

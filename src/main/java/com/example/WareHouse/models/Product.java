@@ -1,4 +1,4 @@
-package com.example.RgrOracle.models;
+package com.example.WareHouse.models;
 
 import jakarta.persistence.*;
 
@@ -6,13 +6,13 @@ import jakarta.persistence.*;
 @Table(name = "t_products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "product_name")
+    @Column
     private String productName;
-    @Column(name = "product_description")
+    @Column
     private String productDescription;
-    @Column(name = "user_role")
+    @Column
     private int productPrice;
     public Product(){
 

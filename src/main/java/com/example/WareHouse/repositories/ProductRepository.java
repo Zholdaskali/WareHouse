@@ -1,6 +1,6 @@
-package com.example.RgrOracle.repositories;
+package com.example.WareHouse.repositories;
 
-import com.example.RgrOracle.models.Product;
+import com.example.WareHouse.models.Product;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
